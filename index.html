@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Finance PRO | Dashboard </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">Finance<span>PRO</span></h1>
+            </div>
+            <nav id="mainNav">
+                <div class="nav-item active" data-section="dashboardPage">Dashboard</div>
+                <div class="nav-item" data-section="transactionsPage">Transações</div>
+                <div class="nav-item" data-section="goalsPage">Metas</div>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btnOpenInitialBalance" class="btn-primary btn-sm" style="width:100%">💰 Saldo Inicial</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2 id="pageTitle">Visão Geral</h2>
+                <div class="header-action-group">
+                    <button id="openModal" class="btn-primary">+ Transação</button>
+                    <button id="openGoalModal" class="btn-primary">+ Meta</button>
+                </div>
+            </header>
+
+            <section id="dashboardPage" class="page-section active">
+                <div class="summary-grid">
+                    <div class="card shadow-purple">
+                        <p class="label">Saldo Total</p>
+                        <h3 id="balance">R$ 0,00</h3>
+                    </div>
+                    <div class="card">
+                        <p class="label">Entradas</p>
+                        <h3 id="incomes" class="text-purple">R$ 0,00</h3>
+                    </div>
+                    <div class="card">
+                        <p class="label">Saídas</p>
+                        <h3 id="expenses" class="text-red">R$ 0,00</h3>
+                    </div>
+                </div>
+                <div class="main-grid">
+                    <div class="card chart-card">
+                        <h4>Fluxo de Caixa</h4>
+                        <div class="chart-wrapper"><canvas id="financeChart"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <h4>Resumo de Metas</h4>
+                        <div id="goalsListQuick"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="transactionsPage" class="page-section">
+                <div class="card">
+                    <div class="search-bar-container">
+                        <input type="text" id="inputSearch" placeholder="Pesquisar descrição..." class="search-input">
+                        <select id="selectFilter" class="search-select">
+                            <option value="all">Todas</option>
+                            <option value="income">Entradas</option>
+                            <option value="expense">Saídas</option>
+                        </select>
+                    </div>
+                    <div class="transaction-header">
+                        <span>Descrição</span>
+                        <span class="text-center hide-mobile">Data</span>
+                        <span class="text-right">Valor</span>
+                    </div>
+                    <ul id="transactionListFull" class="custom-list"></ul>
+                </div>
+            </section>
+
+            <section id="goalsPage" class="page-section">
+                <div id="goalsListFull" class="goals-grid-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div id="modalTrans" class="modal-content">
+            <h3>Nova Transação</h3>
+            <form id="transactionForm">
+                <input type="text" id="desc" placeholder="Descrição" required>
+                <input type="number" id="amount" placeholder="Valor" step="0.01" required>
+                <input type="date" id="transDate" required>
+                <select id="type"><option value="income">Entrada</option><option value="expense">Saída</option></select>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModals()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+        <div id="modalGoal" class="modal-content">
+            <h3>Nova Meta</h3>
+            <form id="goalForm">
+                <input type="text" id="goalName" placeholder="Nome da Meta" required>
+                <input type="number" id="goalTarget" placeholder="Valor Alvo" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModals()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Meta</button>
+                </div>
+            </form>
+        </div>
+        <div id="modalInitial" class="modal-content">
+            <h3>💰 Saldo Inicial</h3>
+            <form id="initialBalanceForm">
+                <input type="number" id="initialAmountInput" placeholder="0.00" step="0.01" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModals()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Definir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

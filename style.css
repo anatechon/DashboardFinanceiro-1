@@ -1,0 +1,356 @@
+:root {
+    --bg-deep: #050505;
+    --bg-side: #0f0f0f;
+    --bg-card: #141414;
+    --border: #222;
+    --purple: #6d28d9;
+    --purple-light: #a78bfa;
+    --gradient: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+    --text-main: #ffffff;
+    --text-dim: #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--bg-side);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.logo span {
+    color: var(--purple-light);
+}
+
+.nav-item {
+    padding: 0.8rem 1rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: 0.3s;
+}
+
+.nav-item.active {
+    background: rgba(109, 40, 217, 0.2);
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-action-group {
+    display: flex;
+    gap: 12px;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0 3rem;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem 3rem;
+}
+
+.search-bar-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    color: white;
+    border-radius: 8px;
+}
+
+.search-select {
+    background: #000;
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+
+.transaction-header,
+.transaction-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 12px 15px;
+}
+
+.transaction-header {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+.transaction-item {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.tx-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tx-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-income {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.icon-expense {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.goals-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0 3rem;
+}
+
+.goal-card {
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.goal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.goal-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    background: rgba(109, 40, 217, 0.2);
+    color: var(--purple-light);
+}
+
+.progress-bg {
+    background: #222;
+    height: 8px;
+    border-radius: 4px;
+    margin: 12px 0;
+}
+
+.progress-fill {
+    background: var(--gradient);
+    height: 100%;
+    border-radius: 4px;
+    transition: 0.8s;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    border: none;
+    color: white;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-cancel {
+    background: #222;
+    border: none;
+    color: white;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    width: 400px;
+    max-width: 90%;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+input,
+select {
+    width: 100%;
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    margin-top: 10px;
+    color: white;
+    border-radius: 6px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+.text-purple {
+    color: var(--purple-light);
+}
+
+.text-red {
+    color: #ef4444;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+    }
+    .logo {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    #mainNav {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    .nav-item {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+    .sidebar-footer {
+        display: none;
+    }
+    .main-header {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-action-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .header-action-group button {
+        flex: 1;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    .summary-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+    }
+    .main-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    .goals-grid-container {
+        padding: 0 1.5rem;
+    }
+    .transaction-header,
+    .transaction-item {
+        grid-template-columns: 1.5fr 1fr;
+    }
+    .hide-mobile {
+        display: none;
+    }
+}
