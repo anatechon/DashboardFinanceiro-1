@@ -10,7 +10,6 @@ O **Finance PRO** é uma aplicação de gestão financeira pessoal desenvolvida 
 - 📈 **Gráfico Evolutivo**: Acompanhamento do fluxo de caixa através do Chart.js.
 - 💸 **Gestão de Transações**: Histórico completo com busca inteligente e filtros.
 - 🎯 **Sistema de Metas**: Crie objetivos financeiros e acompanhe o progresso automático.
-- 📱 **Design Mobile-First**: Interface otimizada para celulares, tablets e desktop.
 - 💾 **Persistência de Dados**: Armazenamento local no navegador (LocalStorage) para não perder suas informações.
 
 ---
