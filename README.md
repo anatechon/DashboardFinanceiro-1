@@ -43,9 +43,13 @@ O projeto foi construído utilizando o que há de mais moderno no desenvolviment
 
 finance-pro/
 ├── index.html    # Estrutura principal e modais
+
 ├── style.css     # Estilização e regras de responsividade
+
 ├── script.js    # Lógica, cálculos e gráficos
+
 └── README.md     # Documentação do projeto
+
 └── License      # Licença do projeto
 
 ---
